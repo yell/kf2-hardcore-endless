@@ -295,7 +295,7 @@ def main(config_filepath):
 
     # generate ini file
     g = CustomWavesGenerator(zeds_config)
-    g.print_waves(markdown=True)
+    g.print_waves()
     g.to_ini(os.path.join(dirpath, 'kfzedvarient.ini'))
 
 
