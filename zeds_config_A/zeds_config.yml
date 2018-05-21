@@ -1,0 +1,857 @@
+# v0.9 -- 11.5.2018
+
+
+# meta params
+n_players: 6
+difficulty: hoe
+zed_multiplier: 1.8
+custom_zeds_ratio_policy: 'make_line_const_interp'
+custom_zeds_ratio_policy_params: [[1, 0.975], [20, 0.825]]
+
+# global (across all waves and zed types) params
+spawn_at_once: 2
+probability: 0.65
+spawn_delay: 9.0
+
+# per-wave zeds specification
+zeds_register:
+
+  # WAVES 1-2
+  - num_wave: 1
+    name: Scrakes + stuff
+    spawn_delay: 6.0
+    zeds:
+      - zed: AlphaClot
+        ratio: 0.75
+      - zed: Slasher
+        ratio: 0.25
+      - zed: AlphaSlasher
+        ratio: 0.75
+      - zed: Rioter
+        ratio: 0.25
+      - zed: Crawler
+        ratio: 0.25
+      - zed: EliteCrawler
+        ratio: 0.75
+      - zed: AlphaCrawler
+        ratio: 1.75
+      - zed: Stalker
+        ratio: 1.0
+      - zed: AlphaStalker
+        ratio: 2.75
+      - zed: Gorefast
+        ratio: 0.5
+      - zed: AlphaGorefast
+        ratio: 1.0
+      - zed: AlphaSiren
+        ratio: 0.25
+      - zed: AlphaHusk
+        ratio: 0.25
+      - zed: Husk
+        ratio: 0.25
+      - zed: Scrake
+        ratio: 3.75
+      - zed: AlphaScrake
+        number: 1
+
+  - num_wave: 2
+    name: Scrakes + stuff + 2 Patriarchs :D
+    spawn_delay: 7.5
+    zeds:
+      - zed: Clot
+        ratio: 1.0
+      - zed: AlphaClot
+        ratio: 1.0
+      - zed: Rioter
+        ratio: 0.4
+      - zed: AlphaSlasher
+        ratio: 1.0
+      - zed: Crawler
+        ratio: 1.0
+      - zed: EliteCrawler
+        ratio: 1.5
+      - zed: AlphaCrawler
+        ratio: 1.5
+      - zed: Stalker
+        ratio: 1.25
+      - zed: AlphaStalker
+        ratio: 1.5
+      - zed: Gorefast
+        ratio: 0.5
+      - zed: AlphaGorefast
+        ratio: 1.0
+      - zed: Gorefiend
+        ratio: 0.75
+      - zed: AlphaHusk
+        ratio: 0.5
+      - zed: Husk
+        ratio: 0.5
+      - zed: Scrake
+        ratio: 4.0
+      - zed: AlphaScrake
+        number: 4
+      - zed: Patriarch
+        number: 1
+      - zed: AlphaPatriarch
+        number: 1
+
+
+  # SPECIAL WAVES
+  - num_wave: 3
+    name: Crawlers
+    spawn_at_once: 4
+    zeds:
+      - zed: Rioter
+        ratio: 0.1
+      - zed: AlphaClot
+        ratio: 0.75
+      - zed: AlphaSlasher
+        ratio: 0.75
+      - zed: Stalker
+        ratio: 0.5
+      - zed: AlphaStalker
+        ratio: 1.75
+      - zed: Crawler
+        ratio: 2.0
+        n_generators: 2
+      - zed: EliteCrawler
+        ratio: 4.5
+        n_generators: 2
+      - zed: AlphaCrawler
+        ratio: 7.5
+        n_generators: 2
+      - zed: AlphaGorefast
+        ratio: 1.0
+      - zed: Gorefiend
+        ratio: 0.5
+      - zed: Siren
+        ratio: 0.25
+      - zed: AlphaSiren
+        ratio: 0.75
+
+  - num_wave: 8
+    name: Clots
+    zeds:
+      - zed: Cyst
+        ratio: 7.0
+        n_generators: 2
+      - zed: Clot
+        ratio: 5.0
+        n_generators: 2
+      - zed: AlphaClot
+        ratio: 7.5
+        n_generators: 2
+      - zed: Slasher
+        ratio: 5.0
+        n_generators: 2
+      - zed: AlphaSlasher
+        ratio: 7.5
+        n_generators: 2
+      - zed: Rioter
+        ratio: 4.5
+        n_generators: 2
+      - zed: Crawler
+        ratio: 2.0
+      - zed: EliteCrawler
+        ratio: 1.5
+      - zed: AlphaCrawler
+        ratio: 2.0
+      - zed: Stalker
+        ratio: 1.25
+      - zed: AlphaStalker
+        ratio: 2.5
+      - zed: Gorefast
+        ratio: 1.5
+      - zed: AlphaGorefast
+        ratio: 2.5
+      - zed: Gorefiend
+        ratio: 2.5
+      - zed: Siren
+        ratio: 1.0
+      - zed: AlphaSiren
+        ratio: 1.25
+      - zed: Bloat
+        ratio: 1.25
+      - zed: AlphaBloat
+        ratio: 0.75
+
+  - num_wave: 13
+    name: Gorefasts
+    spawn_at_once: 4
+    zeds:
+      - zed: Rioter
+        ratio: 0.25
+      - zed: AlphaClot
+        ratio: 1.0
+      - zed: AlphaSlasher
+        ratio: 0.75
+      - zed: AlphaCrawler
+        ratio: 1.5
+      - zed: Stalker
+        ratio: 0.75
+      - zed: AlphaStalker
+        ratio: 1.5
+      - zed: Gorefast
+        ratio: 2.0
+        n_generators: 2
+      - zed: Gorefiend
+        ratio: 5.0
+        n_generators: 2
+      - zed: AlphaGorefast
+        ratio: 7.5
+        n_generators: 2
+
+  - num_wave: 18
+    name: Stalkers
+    spawn_at_once: 4
+    zeds:
+      - zed: Rioter
+        ratio: 0.25
+      - zed: AlphaClot
+        ratio: 1.0
+      - zed: AlphaSlasher
+        ratio: 1.0
+      - zed: AlphaCrawler
+        ratio: 1.75
+      - zed: AlphaGorefast
+        ratio: 0.75
+      - zed: Stalker
+        ratio: 2.5
+        n_generators: 2
+      - zed: AlphaStalker
+        ratio: 10.0
+        n_generators: 2
+
+  - num_wave: 23
+    name: Cysts
+    spawn_at_once: 4
+    zeds:
+      - zed: Cyst
+        spawn_at_once: 3
+        ratio: 90.0
+        n_generators: 3
+      - zed: Rioter
+        ratio: 2.0
+      - zed: AlphaStalker
+        ratio: 3.0
+      - zed: AlphaClot
+        ratio: 4.0
+      - zed: AlphaSlasher
+        ratio: 4.0
+      - zed: AlphaCrawler
+        ratio: 4.0
+      - zed: AlphaGorefast
+        ratio: 2.0
+      - zed: AlphaBloat
+        ratio: 1.5
+      - zed: AlphaSiren
+        ratio: 1.0
+      - zed: Husk
+        ratio: 1.0
+      - zed: Scrake
+        ratio: 1.0
+      - zed: AlphaScrake
+        number: 2
+
+  - num_wave: 6
+    name: Bloats
+    zeds:
+      - zed: Rioter
+        ratio: 0.25
+      - zed: AlphaStalker
+        ratio: 1.0
+      - zed: AlphaClot
+        ratio: 0.75
+      - zed: AlphaSlasher
+        ratio: 0.5
+      - zed: AlphaCrawler
+        ratio: 1.25
+      - zed: AlphaGorefast
+        ratio: 0.75
+      - zed: Bloat
+        ratio: 4.0
+        n_generators: 2
+      - zed: AlphaBloat
+        ratio: 1.75
+        n_generators: 2
+      - zed: Siren
+        ratio: 0.25
+      - zed: AlphaSiren
+        ratio: 0.65
+
+  - num_wave: 11
+    name: Sirens
+    zeds:
+      - zed: Rioter
+        ratio: 0.1
+      - zed: AlphaClot
+        ratio: 0.5
+      - zed: AlphaSlasher
+        ratio: 0.5
+      - zed: AlphaCrawler
+        ratio: 1.5
+      - zed: Stalker
+        ratio: 0.25
+      - zed: AlphaStalker
+        ratio: 1.45
+      - zed: AlphaGorefast
+        ratio: 0.5
+      - zed: Siren
+        ratio: 1.5
+        n_generators: 2
+      - zed: AlphaSiren
+        ratio: 2.5
+        n_generators: 2
+
+  - num_wave: 16
+    name: Bloats + Sirens
+    zeds:
+      - zed: Rioter
+        ratio: 0.2
+      - zed: AlphaClot
+        ratio: 0.5
+      - zed: AlphaSlasher
+        ratio: 0.5
+      - zed: AlphaCrawler
+        ratio: 1.5
+      - zed: AlphaStalker
+        ratio: 1.25
+      - zed: AlphaGorefast
+        ratio: 0.75
+      - zed: Bloat
+        ratio: 4.0
+      - zed: AlphaBloat
+        ratio: 1.75
+      - zed: AlphaSiren
+        ratio: 2.75
+
+  - num_wave: 12
+    name: mostly Husks
+    zeds:
+      - zed: Rioter
+        ratio: 0.35
+      - zed: AlphaClot
+        ratio: 0.75
+      - zed: AlphaSlasher
+        ratio: 0.75
+      - zed: AlphaCrawler
+        ratio: 1.75
+      - zed: Stalker
+        ratio: 0.125
+      - zed: AlphaStalker
+        ratio: 1.0
+      - zed: AlphaGorefast
+        ratio: 0.75
+      - zed: Bloat
+        ratio: 0.75
+      - zed: AlphaBloat
+        ratio: 1.25
+      - zed: AlphaHusk
+        ratio: 0.5
+      - zed: Husk
+        ratio: 10.0
+        n_generators: 2
+      - zed: Siren
+        ratio: 0.5
+      - zed: AlphaSiren
+        ratio: 1.0
+      - zed: Scrake
+        ratio: 2.0
+      - zed: AlphaScrake
+        ratio: 0.25
+      - zed: Quarterpound
+        ratio: 1.25
+      - zed: AlphaFleshpound
+        ratio: 0.25
+      - zed: Fleshpound
+        ratio: 0.125
+
+  - num_wave: 17
+    name: Husks
+    zeds:
+      - zed: Rioter
+        ratio: 0.02
+      - zed: AlphaCrawler
+        ratio: 1.75
+      - zed: AlphaStalker
+        ratio: 1.25
+      - zed: AlphaBloat
+        ratio: 0.5
+      - zed: AlphaSiren
+        ratio: 0.5
+      - zed: Husk
+        ratio: 5.0
+        n_generators: 3
+      - zed: Scrake
+        number: 5
+      - zed: Fleshpound
+        number: 2
+
+  - num_wave: 22
+    name: Scrakes
+    zeds:
+      - zed: Rioter
+        number: 10
+      - zed: AlphaCrawler
+        ratio: 1.0
+      - zed: AlphaStalker
+        ratio: 1.0
+      - zed: AlphaGorefast
+        ratio: 0.5
+      - zed: AlphaBloat
+        ratio: 0.5
+      - zed: AlphaSiren
+        ratio: 0.5
+      - zed: Husk
+        ratio: 0.5
+      - zed: Scrake
+        ratio: 5.0
+        n_generators: 3
+      - zed: AlphaScrake
+        ratio: 0.5
+
+  - num_wave: 4
+    name: simple Pondemonium
+    zeds:
+      - zed: Cyst
+        ratio: 0.5
+      - zed: Rioter
+        ratio: 0.15
+      - zed: AlphaClot
+        ratio: 1.0
+      - zed: AlphaSlasher
+        ratio: 1.0
+      - zed: Crawler
+        ratio: 0.5
+      - zed: EliteCrawler
+        ratio: 0.5
+      - zed: AlphaCrawler
+        ratio: 1.75
+      - zed: Stalker
+        ratio: 0.5
+      - zed: AlphaStalker
+        ratio: 0.5
+      - zed: Gorefast
+        ratio: 0.25
+      - zed: AlphaGorefast
+        ratio: 1.0
+      - zed: Gorefiend
+        ratio: 0.75
+      - zed: Bloat
+        ratio: 0.75
+      - zed: AlphaBloat
+        ratio: 0.5
+      - zed: Siren
+        ratio: 0.5
+      - zed: AlphaSiren
+        ratio: 0.5
+      - zed: Husk
+        ratio: 0.25
+      - zed: Scrake
+        ratio: 0.25
+      - zed: AlphaScrake
+        ratio: 0.1
+      - zed: Quarterpound
+        spawn_at_once: 3
+        ratio: 1.0
+      - zed: Fleshpound
+        number: 5
+        spawn_delay: 30.0
+      - zed: AlphaFleshpound
+        number: 25
+
+  - num_wave: 9
+    name: PONDEMONIUM
+    zeds:
+      - zed: Rioter
+        ratio: 0.05
+      - zed: AlphaClot
+        ratio: 0.04
+      - zed: Quarterpound
+        spawn_at_once: 5
+        ratio: 1.0
+      - zed: Fleshpound
+        number: 12
+        spawn_delay: 30.0
+      - zed: AlphaFleshpound
+        number: 32
+
+  - num_wave: 14
+    name: PONDEMONIUM+
+    zeds:
+      - zed: Rioter
+        number: 8
+      - zed: AlphaClot
+        number: 5
+      - zed: Quarterpound
+        ratio: 1.0
+      - zed: Fleshpound
+        number: 10
+        spawn_delay: 45.0
+      - zed: AlphaFleshpound
+        number: 30
+      - zed: KingFP
+        number: 2
+        n_generators: 2
+        spawn_at_once: 1
+        probability: 1.0
+        spawn_delay: 2.0
+
+  - num_wave: 24
+    name: mini Pondemonium
+    zeds:
+      - zed: Rioter
+        ratio: 0.4
+      - zed: AlphaClot
+        ratio: 0.5
+      - zed: AlphaSlasher
+        ratio: 0.5
+      - zed: AlphaCrawler
+        ratio: 1.0
+      - zed: AlphaStalker
+        ratio: 1.0
+      - zed: AlphaGorefast
+        ratio: 0.75
+      - zed: Husk
+        number: 12
+      - zed: Quarterpound
+        ratio: 10.0
+        n_generators: 3
+      - zed: AlphaFleshpound
+        number: 10
+      - zed: Fleshpound
+        number: 5
+
+
+  # REST / INTERESTING
+  - num_wave: 7
+    name: Alpha wave
+    zeds:
+      - zed: Rioter
+        ratio: 0.5
+      - zed: AlphaClot
+        ratio: 1.25
+      - zed: AlphaSlasher
+        ratio: 1.25
+      - zed: EliteCrawler
+        ratio: 0.75
+      - zed: AlphaCrawler
+        ratio: 2.5
+      - zed: AlphaStalker
+        ratio: 3.0
+      - zed: AlphaGorefast
+        ratio: 1.5
+      - zed: Gorefiend
+        ratio: 0.75
+      - zed: AlphaBloat
+        ratio: 2.0
+      - zed: AlphaSiren
+        ratio: 2.0
+      - zed: AlphaHusk
+        ratio: 0.2
+      - zed: Husk
+        ratio: 2.0
+      - zed: Quarterpound
+        ratio: 1.0
+      - zed: AlphaScrake
+        ratio: 0.25
+      - zed: Scrake
+        ratio: 0.25
+      - zed: Fleshpound
+        ratio: 0.125
+      - zed: AlphaFleshpound
+        ratio: 0.25
+
+  - num_wave: 19
+    name: All of them
+    spawn_delay: 10.0
+    zeds:
+      - zed: Clot
+        ratio: 1.0
+      - zed: AlphaClot
+        ratio: 1.0
+      - zed: Cyst
+        ratio: 1.0
+      - zed: Slasher
+        ratio: 1.0
+      - zed: AlphaSlasher
+        ratio: 1.0
+      - zed: Rioter
+        ratio: 1.0
+      - zed: Crawler
+        ratio: 1.0
+      - zed: EliteCrawler
+        ratio: 1.0
+      - zed: AlphaCrawler
+        ratio: 1.0
+      - zed: Stalker
+        ratio: 1.0
+      - zed: AlphaStalker
+        ratio: 1.0
+      - zed: Gorefast
+        ratio: 1.0
+      - zed: AlphaGorefast
+        ratio: 1.0
+      - zed: Gorefiend
+        ratio: 1.0
+      - zed: Bloat
+        ratio: 1.0
+      - zed: AlphaBloat
+        ratio: 1.0
+      - zed: Siren
+        ratio: 1.0
+      - zed: AlphaSiren
+        ratio: 1.0
+      - zed: Husk
+        ratio: 1.0
+      - zed: AlphaHusk
+        ratio: 1.0
+      - zed: Quarterpound
+        ratio: 1.0
+      - zed: Scrake
+        ratio: 1.0
+      - zed: AlphaScrake
+        ratio: 1.0
+      - zed: Fleshpound
+        ratio: 1.0
+        spawn_delay: 30.0
+      - zed: AlphaFleshpound
+        ratio: 1.0
+
+  - num_wave: 21
+    name: Untypical typical wave
+    zeds:
+      - zed: Cyst
+        ratio: 1.0
+      - zed: Rioter
+        ratio: 0.1
+      - zed: AlphaClot
+        ratio: 1.0
+      - zed: AlphaSlasher
+        ratio: 1.0
+      - zed: Crawler
+        ratio: 0.5
+      - zed: EliteCrawler
+        ratio: 0.75
+      - zed: AlphaCrawler
+        ratio: 1.75
+      - zed: Stalker
+        ratio: 0.25
+      - zed: AlphaStalker
+        ratio: 1.25
+      - zed: AlphaGorefast
+        ratio: 0.75
+      - zed: Scrake
+        ratio: 1.25
+      - zed: AlphaScrake
+        ratio: 0.1
+      - zed: Husk
+        ratio: 1.0
+      - zed: Quarterpound
+        ratio: 1.0
+      - zed: Fleshpound
+        number: 4
+      - zed: AlphaFleshpound
+        number: 10
+
+
+  # BOSSES
+  - num_wave: 5
+    name: all 4 bosses+ (T=1min)
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    zeds:
+      - zed: Patriarch   
+      - zed: Hans
+      - zed: KingFP
+      - zed: Abomination
+      - zed: Abomination
+        spawn_delay: 60
+      - zed: KingFP
+        spawn_delay: 120
+      - zed: Hans
+        spawn_delay: 180
+      - zed: Patriarch
+        spawn_delay: 240
+      - zed: Abomination
+        spawn_delay: 300
+      - zed: KingFP
+        spawn_delay: 360
+      - zed: Hans
+        spawn_delay: 420
+      - zed: Patriarch
+        spawn_delay: 480
+      
+  - num_wave: 10
+    name: HAK+ (T=2min)
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    zeds:
+      - zed: Hans
+      - zed: KingFP
+      - zed: KingFP
+      - zed: Abomination
+      - zed: Abomination
+        spawn_delay: 120
+      - zed: KingFP
+        spawn_delay: 240
+      - zed: Abomination
+        spawn_delay: 360
+      - zed: KingFP
+        spawn_delay: 480
+      - zed: Abomination
+        spawn_delay: 600
+      - zed: KingFP
+        spawn_delay: 720
+      - zed: Abomination
+        spawn_delay: 840
+      - zed: KingFP
+        spawn_delay: 960
+
+  - num_wave: 15
+    name: 2x King{Flesh, Bloat} bosses (T=3min)
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    zeds:
+      - zed: KingFP
+      - zed: KingFP
+      - zed: Abomination
+      - zed: Abomination
+      - zed: Abomination
+        spawn_delay: 180
+      - zed: KingFP
+        spawn_delay: 360
+      - zed: Abomination
+        spawn_delay: 540
+      - zed: Patriarch
+        spawn_delay: 720
+      - zed: KingFP
+        spawn_delay: 900
+      - zed: Abomination
+        spawn_delay: 1080
+      - zed: Hans
+        spawn_delay: 1260
+
+  - num_wave: 20
+    name: KING PONDEMONIUM (T=4min)
+    spawn_at_once: 1
+    spawn_delay: 5.0
+    zeds:
+      - zed: KingFP
+        number: 10
+        n_generators: 10
+      - zed: KingFP
+        spawn_delay: 240
+      - zed: Patriarch
+        spawn_delay: 480
+      - zed: KingFP
+        spawn_delay: 720
+      - zed: Abomination
+        spawn_delay: 960
+      - zed: KingFP
+        spawn_delay: 1200
+      - zed: Abomination
+        spawn_delay: 1440
+      - zed: KingFP
+        spawn_delay: 1680
+      - zed: Abomination
+        spawn_delay: 1920
+
+  - num_wave: 25
+    name: King Bloats (T=5min)
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    zeds:
+      - zed: Abomination
+      - zed: Abomination
+      - zed: Abomination
+      - zed: Abomination
+      - zed: Abomination
+        spawn_delay: 300
+      - zed: Abomination
+        spawn_delay: 600
+      - zed: Abomination
+        spawn_delay: 900
+      - zed: Abomination
+        spawn_delay: 1200
+      - zed: Abomination
+        spawn_delay: 1500
+      - zed: Abomination
+        spawn_delay: 1800
+      - zed: Abomination
+        spawn_delay: 2100
+      - zed: Abomination
+        spawn_delay: 2400
+      - zed: Abomination
+        spawn_delay: 2700
+      - zed: Abomination
+        spawn_delay: 3000
+
+
+  # DEAD WAVES :DD
+  - num_wave: 26
+    name: '???????' # ALPHA PONDEMONIUM (очень долго проходимая)
+    zeds:
+      - zed: Quarterpound
+        ratio: 0.1
+      - zed: AlphaFleshpound
+        ratio: 0.8
+        n_generators: 16
+        spawn_at_once: 1
+        probability: 0.99
+        spawn_delay: 45
+      - zed: Fleshpound
+        ratio: 0.1
+        n_generators: 10
+        spawn_at_once: 1
+        probability: 0.99
+        spawn_delay: 120
+
+  - num_wave: 27
+    name: '???????[2]'
+    zeds:
+      - zed: Fleshpound
+        ratio: 1.0
+        n_generators: 4
+
+  - num_wave: 28
+    name: '???????[3]'
+    spawn_at_once: 1
+    spawn_delay: 5.0
+    zeds:
+      - zed: Patriarch
+        number: 10
+        n_generators: 10
+      - zed: Hans
+        number: 10
+        n_generators: 10
+      - zed: KingFP
+        number: 10
+        n_generators: 10
+      - zed: Abomination
+        number: 10
+        n_generators: 10
+      - zed: Patriarch
+        number: 10
+        n_generators: 10
+        spawn_delay: 60
+      - zed: Hans
+        number: 10
+        n_generators: 10
+        spawn_delay: 60
+      - zed: KingFP
+        number: 10
+        n_generators: 10
+        spawn_delay: 60
+      - zed: Abomination
+        number: 10
+        n_generators: 10
+        spawn_delay: 60
