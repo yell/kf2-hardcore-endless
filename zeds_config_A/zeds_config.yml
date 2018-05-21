@@ -18,7 +18,7 @@ zeds_register:
 
   # WAVES 1-2
   - num_wave: 1
-    name: Scrakes + stuff
+    name: First blood
     spawn_delay: 6.0
     zeds:
       - zed: AlphaClot
@@ -55,7 +55,7 @@ zeds_register:
         number: 1
 
   - num_wave: 2
-    name: Scrakes + stuff + 2 Patriarchs :D
+    name: Surprise :D
     spawn_delay: 7.5
     zeds:
       - zed: Clot
@@ -96,7 +96,7 @@ zeds_register:
         number: 1
 
 
-  # SPECIAL WAVES
+  # SPECIAL-LIKE WAVES
   - num_wave: 3
     name: Crawlers
     spawn_at_once: 4
@@ -326,7 +326,7 @@ zeds_register:
         ratio: 2.75
 
   - num_wave: 12
-    name: mostly Husks
+    name: Husks prelude
     zeds:
       - zed: Rioter
         ratio: 0.35
@@ -411,7 +411,7 @@ zeds_register:
         ratio: 0.5
 
   - num_wave: 4
-    name: simple Pondemonium
+    name: Pondemonium prelude
     zeds:
       - zed: Cyst
         ratio: 0.5
@@ -461,7 +461,7 @@ zeds_register:
         number: 25
 
   - num_wave: 9
-    name: PONDEMONIUM
+    name: Pondemonium
     zeds:
       - zed: Rioter
         ratio: 0.05
@@ -477,7 +477,7 @@ zeds_register:
         number: 32
 
   - num_wave: 14
-    name: PONDEMONIUM+
+    name: Pondemonium+
     zeds:
       - zed: Rioter
         number: 8
@@ -498,7 +498,7 @@ zeds_register:
         spawn_delay: 2.0
 
   - num_wave: 24
-    name: mini Pondemonium
+    name: mini-Pondemonium
     zeds:
       - zed: Rioter
         ratio: 0.4
@@ -522,10 +522,28 @@ zeds_register:
       - zed: Fleshpound
         number: 5
 
+  - num_wave: 26
+    name: 'Alpha Pondemonium'
+    zeds:
+      - zed: Quarterpound
+        ratio: 0.1
+      - zed: AlphaFleshpound
+        ratio: 0.8
+        n_generators: 16
+        spawn_at_once: 1
+        probability: 0.99
+        spawn_delay: 45
+      - zed: Fleshpound
+        ratio: 0.1
+        n_generators: 10
+        spawn_at_once: 1
+        probability: 0.99
+        spawn_delay: 120
+
 
   # REST / INTERESTING
   - num_wave: 7
-    name: Alpha wave
+    name: '"Alpha wave"'
     zeds:
       - zed: Rioter
         ratio: 0.5
@@ -563,7 +581,7 @@ zeds_register:
         ratio: 0.25
 
   - num_wave: 19
-    name: All of them
+    name: '"All of them"'
     spawn_delay: 10.0
     zeds:
       - zed: Clot
@@ -619,7 +637,7 @@ zeds_register:
         ratio: 1.0
 
   - num_wave: 21
-    name: Untypical typical wave
+    name: '"Untypical typical wave"'
     zeds:
       - zed: Cyst
         ratio: 1.0
@@ -657,7 +675,7 @@ zeds_register:
 
   # BOSSES
   - num_wave: 5
-    name: all 4 bosses+ (T=1min)
+    name: all 4 bosses (T=1min)
     spawn_at_once: 1
     probability: 1.0
     spawn_delay: 2.0
@@ -685,7 +703,7 @@ zeds_register:
         spawn_delay: 480
       
   - num_wave: 10
-    name: HAK+ (T=2min)
+    name: Hans, 2FPs, Abomination (T=2min)
     spawn_at_once: 1
     probability: 1.0
     spawn_delay: 2.0
@@ -797,33 +815,15 @@ zeds_register:
 
 
   # DEAD WAVES :DD
-  - num_wave: 26
-    name: '???????' # ALPHA PONDEMONIUM (очень долго проходимая)
-    zeds:
-      - zed: Quarterpound
-        ratio: 0.1
-      - zed: AlphaFleshpound
-        ratio: 0.8
-        n_generators: 16
-        spawn_at_once: 1
-        probability: 0.99
-        spawn_delay: 45
-      - zed: Fleshpound
-        ratio: 0.1
-        n_generators: 10
-        spawn_at_once: 1
-        probability: 0.99
-        spawn_delay: 120
-
   - num_wave: 27
-    name: '???????[2]'
+    name: '?????'
     zeds:
       - zed: Fleshpound
         ratio: 1.0
         n_generators: 4
 
   - num_wave: 28
-    name: '???????[3]'
+    name: '?????'
     spawn_at_once: 1
     spawn_delay: 5.0
     zeds:

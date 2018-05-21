@@ -189,9 +189,9 @@ class CustomWavesGenerator(object):
 
         for num_wave, name in names:
             if markdown:
-                print '| **{0}** | "{1}" |'.format(num_wave, name)
+                print '| **{0}** | {1} |'.format(num_wave, name)
             else:
-                print 'Wave {0}: "{1}"'.format(num_wave, name)
+                print 'Wave {0}: {1}'.format(num_wave, name)
 
     def to_ini(self, filename='kfzedvarient.ini'):
         s_list = []
