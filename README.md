@@ -1,0 +1,1 @@
+# kf2-hardcore-endless
