@@ -1,6 +1,16 @@
 # kf2-hardcore-endless
+Configs (A, B) (in YML format) + script to convert to *.ini files (+ ini files themselves).
+
+## How to use
+Simply run the script with the YML config as argument, e.g.:
+```bash
+$ python custom_waves_generator.py zeds_config_A/zeds_config.yml
+```
+and it will create the corresponding *kfzedvarient.ini* file in the same folder the config is, and also will print wave names if they are provided.
 
 ### Config A
+The first config (A) is more hardcore than the second (B) one, and also with more thoroughly designed waves (in terms of zeds combinations, ratios etc.). The second config simply contains all possible "special waves" with increasing complexity, that is waves with zeds of same kind only.
+
 | Wave | <div align="center">Name</div> |
 | :---: | :--- |
 | **1** | "Scrakes + stuff" |
