@@ -9,7 +9,8 @@ $ python custom_waves_generator.py zeds_config_A/zeds_config.yml
 and it will create the corresponding *kfzedvarient.ini* file in the same folder the config is, and also will print wave names if they are provided.
 
 ### Config A
-The first config (A) is more hardcore than the second (B) one, and also with more thoroughly designed waves (in terms of zeds combinations, ratios etc.). The second config simply contains all possible "special waves" with increasing complexity, that is waves with zeds of same kind only. All waves are possible to complete with a decent team, apart from "dead waves" (26+ for A, and 30-th for B), which are designed to be impossible.
+The first config (A) is more hardcore than the second (B) one, and also with more thoroughly designed waves (in terms of zeds combinations, ratios etc.). The second config simply contains all possible "special waves" with increasing complexity, that is waves with zeds of same kind only. All waves are possible to complete with a decent team, apart from "dead waves" (26+ for A, and 30-th for B), which are designed to be impossible. Note the waves which are called "Crawlers" or similar in the config A still contain zeds of various types/subtypes (like Crawler, Elite Crawler, Alpha Crawler).
++ ratio (still contain 10-15% of non-custom zeds).
 
 | Wave | <div align="center">Name</div> |
 | :---: | :--- |
