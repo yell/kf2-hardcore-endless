@@ -137,7 +137,7 @@ def make_line_interp((x0, y0), (x1, y1)):
 
 
 def make_line_const_interp((x0, y0), (x1, y1)):
-	'''same as `make_line_interp`, but extrapolated constantly beyond [x0; x1]'''
+	"""Same as `make_line_interp`, but extrapolated constantly beyond [x0; x1]."""
 	m = min(x0, x1)
 	M = max(x0, x1)
 	def f(x):
@@ -173,7 +173,7 @@ class CustomWavesGenerator(object):
 		self.t = 'CustomZeds=(Wave={num_wave},SpawnAtOnce={spawn_at_once},Zed="{zed}",'
 		self.t += 'Probability={probability},Delay={spawn_delay},MaxSpawns={max_zeds})'
 
-	def list_waves(self):
+	def print_waves(self):
 		names = []
 		for zeds_register_wave in self.zeds_register:
 			num_wave = zeds_register_wave['num_wave']
@@ -286,7 +286,7 @@ def main(config_filepath):
 
     # generate ini file
     g = CustomWavesGenerator(zeds_config)
-    g.list_waves()
+    g.print_waves()
     g.to_ini(os.path.join(dirpath, 'kfzedvarient.ini'))
 
 
