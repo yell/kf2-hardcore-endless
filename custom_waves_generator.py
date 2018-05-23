@@ -53,8 +53,8 @@ Z = KF2_ZED
 
 
 class KF2_EndlessUtility(object):
-    """
-    Numbers as per 1.5.2018
+    """Utility functions to compute zed count, zed count multipliers, 
+    spawn rates etc. in KF2 Endless mode. Numbers as per 1.5.2018
 
     References
     ----------
@@ -145,9 +145,9 @@ def make_line_const_interp((x0, y0), (x1, y1)):
     return f
 
 
-class CustomWavesGenerator(object):
-    """
-    Class encapsulating custom zeds waves
+class KF2_CustomEndlessWaves(object):
+    """Class encapsulating custom zed waves in KF2
+    Endless mode.
     """
     def __init__(self, zeds_config=None):
         self.zeds_config = zeds_config or {}
@@ -173,7 +173,7 @@ class CustomWavesGenerator(object):
         self.t = 'CustomZeds=(Wave={num_wave},SpawnAtOnce={spawn_at_once},Zed="{zed}",'
         self.t += 'Probability={probability},Delay={spawn_delay},MaxSpawns={max_zeds})'
 
-    def print_waves(self, markdown=False):
+    def list_waves(self, markdown=False):
         # collect all names
         names = []
         for zeds_register_wave in self.zeds_register:
@@ -182,7 +182,7 @@ class CustomWavesGenerator(object):
                 names.append((num_wave, zeds_register_wave['name']))
         names.sort()
 
-        # print (in the markdown format if needed)
+        # output in the specified format
         if markdown:
             print '| Wave | <div align="center">Name</div> |'
             print '| :---: | :--- |'
@@ -193,7 +193,7 @@ class CustomWavesGenerator(object):
             else:
                 print 'Wave {0}: {1}'.format(num_wave, name)
 
-    def to_ini(self, filename='kfzedvarient.ini'):
+    def to_zedvarient_ini(self, filename):
         s_list = []
         s_list.append('[ZedVarient.ZedVarient]')
         s_list.append('ZedMultiplier={0:.6f}'.format(self.zed_multiplier))
@@ -237,7 +237,7 @@ class CustomWavesGenerator(object):
                 zed_entry['n_generators'] = int(zed_entry['n_generators'])
                 zed_entry['zed'] = Z.to_str(getattr(Z, zed_entry['zed']))
 
-                # and sum all ratios and numbers for proper normalization
+                # sum up all ratios and numbers for proper normalization
                 sum_ratio += zed_entry['ratio']
                 sum_numbers += zed_entry['number']
 
@@ -255,7 +255,8 @@ class CustomWavesGenerator(object):
                 # correct `spawn_at_once` if needed
                 zed_entry['spawn_at_once'] = min(max_zeds, zed_entry['spawn_at_once'])
                 
-                # undo multiplication by spawn delay multiplier, which decays too quickly
+                # undo multiplication by spawn delay multiplier 
+                # (by default the spawn delay decays too quickly)
                 zed_entry['spawn_delay'] *= ( KF2.spawn_delay(zed_entry['spawn_delay'], 1) /
                                               KF2.spawn_delay(zed_entry['spawn_delay'], num_wave) )
 
@@ -283,20 +284,21 @@ def main(config_filepath):
         path to zeds config
     """
     dirpath, _ = os.path.split(config_filepath)
-    if not dirpath: head = '.'
+    if not dirpath: dirpath = '.'
     if not dirpath.endswith('/'): dirpath += '/'
 
     # load config
-    zeds_config = yaml.load(open(config_filepath, 'r'))
+    with open(config_filepath, 'r') as f:
+        zeds_config = yaml.load(f)
 
     # validate ratio policy
     f = globals()[zeds_config['custom_zeds_ratio_policy']]
     zeds_config['custom_zeds_ratio_policy'] = f(*zeds_config['custom_zeds_ratio_policy_params'])
 
     # generate ini file
-    g = CustomWavesGenerator(zeds_config)
-    g.print_waves()
-    g.to_ini(os.path.join(dirpath, 'kfzedvarient.ini'))
+    w = KF2_CustomEndlessWaves(zeds_config)
+    w.list_waves()
+    w.to_zedvarient_ini(os.path.join(dirpath, 'kfzedvarient.ini'))
 
 
 if __name__ == '__main__':
