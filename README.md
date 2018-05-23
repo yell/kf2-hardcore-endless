@@ -11,7 +11,7 @@ this will create the *.ini file in the same folder as config, and also will prin
 ## Features
 * 
 
-## Provided configs
+## Try these waves!
 * The first config (A) is more hardcore than the second (B) one, and also with more thoroughly designed waves (in terms of zeds combinations, ratios etc.)
 * The second config simply contains all possible "special waves" with increasing complexity, that is waves with zeds of same kind only.
 * All waves are possible to complete with a decent team. Note the waves which are called "Crawlers" or similar in the config A still contain zeds of various types/subtypes (like Crawler, Elite Crawler, Alpha Crawler).
