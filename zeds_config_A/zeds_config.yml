@@ -18,7 +18,7 @@ zeds_register:
 
   # WAVES 1-2
   - num_wave: 1
-    name: First blood
+    name: '"First blood"'
     spawn_delay: 6.0
     zeds:
       - zed: AlphaClot
@@ -55,7 +55,7 @@ zeds_register:
         number: 1
 
   - num_wave: 2
-    name: Surprise :D
+    name: '"2 surprises"'
     spawn_delay: 7.5
     zeds:
       - zed: Clot
@@ -523,7 +523,7 @@ zeds_register:
         number: 5
 
   - num_wave: 26
-    name: 'Alpha Pondemonium'
+    name: Alpha Pondemonium
     zeds:
       - zed: Quarterpound
         ratio: 0.1
