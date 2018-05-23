@@ -823,7 +823,7 @@ zeds_register:
         n_generators: 4
 
   - num_wave: 28
-    name: '?????'
+    name: '?????[2]'
     spawn_at_once: 1
     spawn_delay: 5.0
     zeds:
