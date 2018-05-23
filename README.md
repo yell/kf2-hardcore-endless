@@ -2,77 +2,45 @@
 Configs (A, B) (in YML format) + script to convert to *.ini files (+ ini files themselves).
 
 ## How to use
-Simply run the script with the YML config as argument, e.g.:
+To generate *kfzedvarient.ini* file from the YML config simply run, e.g.:
 ```bash
 $ python custom_waves_generator.py zeds_config_A/zeds_config.yml
 ```
-and it will create the corresponding *kfzedvarient.ini* file in the same folder the config is, and also will print wave names if they are provided.
+this will create the *.ini file in the same folder as config, and also will print wave names if they are provided.
 
 ### Config A
 The first config (A) is more hardcore than the second (B) one, and also with more thoroughly designed waves (in terms of zeds combinations, ratios etc.). The second config simply contains all possible "special waves" with increasing complexity, that is waves with zeds of same kind only. All waves are possible to complete with a decent team. Note the waves which are called "Crawlers" or similar in the config A still contain zeds of various types/subtypes (like Crawler, Elite Crawler, Alpha Crawler).
 + ratio (still contain 10-15% of non-custom zeds).
 
-| Wave | <div align="center">Name</div> |
-| :---: | :--- |
-| **1** | First blood |
-| **2** | Surprise :D |
-| **3** | Crawlers |
-| **4** | Pondemonium prelude |
-| **5** | all 4 bosses (T=1min) |
-| **6** | Bloats |
-| **7** | "Alpha wave" |
-| **8** | Clots |
-| **9** | Pondemonium |
-| **10** | Hans, 2FPs, Abomination (T=2min) |
-| **11** | Sirens |
-| **12** | Husks prelude |
-| **13** | Gorefasts |
-| **14** | Pondemonium+ |
-| **15** | 2x King{Flesh, Bloat} bosses (T=3min) |
-| **16** | Bloats + Sirens |
-| **17** | Husks |
-| **18** | Stalkers |
-| **19** | "All of them" |
-| **20** | KING PONDEMONIUM (T=4min) |
-| **21** | "Untypical typical wave" |
-| **22** | Scrakes |
-| **23** | Cysts |
-| **24** | mini-Pondemonium |
-| **25** | King Bloats (T=5min) |
-| **26** | Alpha Pondemonium |
-| **27** | ????? |
-| **28** | ????? |
-
-### Config B
-| Wave | <div align="center">Name</div> |
-| :---: | :--- |
-| **1** | Cyst |
-| **2** | Slasher |
-| **3** | Crawler |
-| **4** | Clot |
-| **5** | Abomination |
-| **6** | Stalker |
-| **7** | Gorefast |
-| **8** | Rioter |
-| **9** | AlphaSlasher |
-| **10** | KingFP |
-| **11** | EliteCrawler |
-| **12** | AlphaHusk |
-| **13** | Gorefiend |
-| **14** | Siren |
-| **15** | Hans |
-| **16** | Bloat |
-| **17** | AlphaStalker |
-| **18** | AlphaClot |
-| **19** | AlphaCrawler |
-| **20** | AlphaPatriarch |
-| **21** | AlphaGorefast |
-| **22** | Quarterpound |
-| **23** | AlphaSiren |
-| **24** | AlphaBloat |
-| **25** | Patriarch |
-| **26** | Scrake |
-| **27** | Husk |
-| **28** | AlphaScrake |
-| **29** | AlphaFleshpound |
-| **30** | Fleshpound |
+| Wave | <div align="center">Config A</div> | <div align="center">Config B</div> |
+| :---: | :--- | :--- |
+| **1** | "First blood" | Cyst |
+| **2** | "2 surprises" | Slasher |
+| **3** | Crawlers | Crawler |
+| **4** | Pondemonium prelude | Clot |
+| **5** | all 4 bosses (T=1min) | Abomination |
+| **6** | Bloats | Stalker |
+| **7** | "Alpha wave" | Gorefast |
+| **8** | Clots | Rioter |
+| **9** | Pondemonium | AlphaSlasher |
+| **10** | Hans, 2FPs, Abomination (T=2min) | KingFP |
+| **11** | Sirens | EliteCrawler |
+| **12** | Husks prelude | AlphaHusk |
+| **13** | Gorefasts | Gorefiend |
+| **14** | Pondemonium+ | Siren |
+| **15** | 2x King{Flesh, Bloat} bosses (T=3min) | Hans |
+| **16** | Bloats + Sirens | Bloat |
+| **17** | Husks | AlphaStalker |
+| **18** | Stalkers | AlphaClot |
+| **19** | "All of them" | AlphaCrawler |
+| **20** | KING PONDEMONIUM (T=4min) | AlphaPatriarch |
+| **21** | "Untypical typical wave" | AlphaGorefast |
+| **22** | Scrakes | Quarterpound |
+| **23** | Cysts | AlphaSiren |
+| **24** | mini-Pondemonium | AlphaBloat |
+| **25** | King Bloats (T=5min) | Patriarch |
+| **26** | Alpha Pondemonium | Scrake |
+| **27** | ????? | Husk |
+| **28** | ?????[2] | AlphaScrake |
+| **29** | &mdash; | AlphaFleshpound |
+| **30** | &mdash; | Fleshpound |
