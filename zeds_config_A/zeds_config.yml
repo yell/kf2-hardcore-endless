@@ -98,7 +98,7 @@ zeds_register:
 
   # SPECIAL-LIKE WAVES
   - num_wave: 3
-    name: Crawlers
+    name: Crawler
     spawn_at_once: 4
     zeds:
       - zed: Rioter
@@ -130,7 +130,7 @@ zeds_register:
         ratio: 0.75
 
   - num_wave: 8
-    name: Clots
+    name: Clot
     zeds:
       - zed: Cyst
         ratio: 7.0
@@ -176,7 +176,7 @@ zeds_register:
         ratio: 0.75
 
   - num_wave: 13
-    name: Gorefasts
+    name: Gorefast
     spawn_at_once: 4
     zeds:
       - zed: Rioter
@@ -202,7 +202,7 @@ zeds_register:
         n_generators: 2
 
   - num_wave: 18
-    name: Stalkers
+    name: Stalker
     spawn_at_once: 4
     zeds:
       - zed: Rioter
@@ -223,7 +223,7 @@ zeds_register:
         n_generators: 2
 
   - num_wave: 23
-    name: Cysts
+    name: Cyst
     spawn_at_once: 4
     zeds:
       - zed: Cyst
@@ -254,7 +254,7 @@ zeds_register:
         number: 2
 
   - num_wave: 6
-    name: Bloats
+    name: Bloat
     zeds:
       - zed: Rioter
         ratio: 0.25
@@ -280,7 +280,7 @@ zeds_register:
         ratio: 0.65
 
   - num_wave: 11
-    name: Sirens
+    name: Siren
     zeds:
       - zed: Rioter
         ratio: 0.1
@@ -304,7 +304,7 @@ zeds_register:
         n_generators: 2
 
   - num_wave: 16
-    name: Bloats + Sirens
+    name: Bloat + Siren
     zeds:
       - zed: Rioter
         ratio: 0.2
@@ -326,7 +326,7 @@ zeds_register:
         ratio: 2.75
 
   - num_wave: 12
-    name: Husks prelude
+    name: Husk prelude
     zeds:
       - zed: Rioter
         ratio: 0.35
@@ -367,7 +367,7 @@ zeds_register:
         ratio: 0.125
 
   - num_wave: 17
-    name: Husks
+    name: Husk
     zeds:
       - zed: Rioter
         ratio: 0.02
@@ -388,7 +388,7 @@ zeds_register:
         number: 2
 
   - num_wave: 22
-    name: Scrakes
+    name: Scrake
     zeds:
       - zed: Rioter
         number: 10
@@ -757,7 +757,7 @@ zeds_register:
         spawn_delay: 1260
 
   - num_wave: 20
-    name: KING PONDEMONIUM (T=4min)
+    name: King Pondemonium (T=4min)
     spawn_at_once: 1
     spawn_delay: 5.0
     zeds:
@@ -814,7 +814,7 @@ zeds_register:
         spawn_delay: 3000
 
 
-  # DEAD WAVES :DD
+  # GG WAVES
   - num_wave: 27
     name: '?????'
     zeds:

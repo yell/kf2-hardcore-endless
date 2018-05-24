@@ -18,7 +18,7 @@ n_generators: 4
 # per-wave zeds specification
 zeds_register:
 
-  # NON-BOSS WAVES
+  # STANDARD WAVES
   - num_wave: 1
     name: Cyst
     spawn_delay: 1.5
