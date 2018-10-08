@@ -53,7 +53,8 @@ Z = KF2_ZED
 
 
 class KF2_EndlessUtility(object):
-    """Utility class with routines to compute zed count,
+    """
+    Utility class with routines to compute zed count,
     zed count multipliers, spawn rates etc. in KF2 Endless mode.
     Numbers as per 01.05.2018
 
@@ -164,9 +165,7 @@ def make_line_const_interp((x0, y0), (x1, y1)):
 
 
 class KF2_CustomEndlessWaves(object):
-    """Class encapsulating custom zed waves in KF2
-    Endless mode.
-    """
+    """Class encapsulating custom zed waves in KF2 Endless mode."""
     def __init__(self, zeds_config=None):
         self.zeds_config = zeds_config or {}
 
