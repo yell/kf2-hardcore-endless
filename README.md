@@ -55,31 +55,31 @@ See below for examples.
 | :---: | :--- | :--- |
 | **1** | "First blood" | Cyst |
 | **2** | "2 surprises" | Slasher |
-| **3** | Crawlers | Crawler |
+| **3** | Crawler | Crawler |
 | **4** | Pondemonium prelude | Clot |
-| **5** | all 4 bosses (T=1min) | Abomination |
-| **6** | Bloats | Stalker |
+| **5** | **all 4 bosses (T=1min)** | **Abomination** |
+| **6** | Bloat | Stalker |
 | **7** | "Alpha wave" | Gorefast |
-| **8** | Clots | Rioter |
+| **8** | Clot | Rioter |
 | **9** | Pondemonium | AlphaSlasher |
-| **10** | Hans, 2FPs, Abomination (T=2min) | KingFP |
-| **11** | Sirens | EliteCrawler |
-| **12** | Husks prelude | AlphaHusk |
-| **13** | Gorefasts | Gorefiend |
+| **10** | **Hans, 2FPs, Abomination (T=2min)** | **KingFP** |
+| **11** | Siren | EliteCrawler |
+| **12** | Husk prelude | AlphaHusk |
+| **13** | Gorefast | Gorefiend |
 | **14** | Pondemonium+ | Siren |
-| **15** | 2x King{Flesh, Bloat} bosses (T=3min) | Hans |
-| **16** | Bloats + Sirens | Bloat |
-| **17** | Husks | AlphaStalker |
-| **18** | Stalkers | AlphaClot |
+| **15** | **2x King{Flesh, Bloat} bosses (T=3min)** | **Hans** |
+| **16** | Bloat + Siren | Bloat |
+| **17** | Husk | AlphaStalker |
+| **18** | Stalker | AlphaClot |
 | **19** | "All of them" | AlphaCrawler |
-| **20** | KING PONDEMONIUM (T=4min) | AlphaPatriarch |
+| **20** | **King Pondemonium (T=4min)** | **AlphaPatriarch** |
 | **21** | "Untypical typical wave" | AlphaGorefast |
-| **22** | Scrakes | Quarterpound |
-| **23** | Cysts | AlphaSiren |
+| **22** | Scrake | Quarterpound |
+| **23** | Cyst | AlphaSiren |
 | **24** | mini-Pondemonium | AlphaBloat |
-| **25** | King Bloats (T=5min) | Patriarch |
+| **25** | **King Bloats (T=5min)** | **Patriarch** |
 | **26** | Alpha Pondemonium | Scrake |
 | **27** | ????? | Husk |
 | **28** | ?????[2] | AlphaScrake |
 | **29** | &mdash; | AlphaFleshpound |
-| **30** | &mdash; | Fleshpound |
+| **30** | **&mdash;** | **Fleshpound** |
