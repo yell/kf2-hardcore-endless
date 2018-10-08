@@ -4,7 +4,7 @@ Configs (A, B) (in YML format) + script to convert to *.ini files (+ ini files t
 ## How to use
 To generate *kfzedvarient.ini* file from the YML config simply run, e.g.:
 ```bash
-$ python custom_waves_generator.py zeds_config_A/zeds_config.yml
+$ python custom_waves_generator.py -h
 ```
 this will create the *.ini file in the same folder as config, and also will print wave names if they are provided.
 
@@ -17,7 +17,7 @@ this will create the *.ini file in the same folder as config, and also will prin
 * All waves are possible to complete with a decent team. Note the waves which are called "Crawlers" or similar in the config A still contain zeds of various types/subtypes (like Crawler, Elite Crawler, Alpha Crawler).
 * ratio (still contain 10-15% of non-custom zeds).
 
-| Wave | <div align="center">[Config A](zeds_config_A/zeds_config.yml)</div> | <div align="center">[Config B](zeds_config_B/zeds_config.yml)</div> |
+| Wave | <div align="center">[Config A](config_A/zeds_config.yaml)</div> | <div align="center">[Config B](config_B/zeds_config.yaml)</div> |
 | :---: | :--- | :--- |
 | **1** | "First blood" | Cyst |
 | **2** | "2 surprises" | Slasher |
