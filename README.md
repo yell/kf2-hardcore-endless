@@ -2,14 +2,25 @@
 Configs (A, B) (in YML format) + script to convert to *.ini files (+ ini files themselves).
 
 ## How to use
-To generate *kfzedvarient.ini* file from the YML config simply run, e.g.:
 ```bash
-$ python custom_waves_generator.py -h
+$ python main.py -h
+
+usage: main.py [-h] [--txt] [--markdown] PATH
+
+Generate `kfzedvarient.ini` file from given YAML config and save it to the
+same directory.
+
+positional arguments:
+  PATH        path to YAML config
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --txt       display wave names (default: False)
+  --markdown  display wave names in Markdown format (default: False)
 ```
-this will create the *.ini file in the same folder as config, and also will print wave names if they are provided.
 
 ## Features
-* 
+* Can use **all** zeds (including alpha-zeds, bosses, and alpha-Patriarch) available as per May 2018
 
 ## Try these waves!
 * The first config (A) is more hardcore than the second (B) one, and also with more thoroughly designed waves (in terms of zeds combinations, ratios etc.)
