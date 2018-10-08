@@ -225,7 +225,6 @@ class KF2_CustomEndlessWaves(object):
             num_wave = zeds_register_wave['num_wave']
 
             # get or estimate (actual) total number of zeds
-            n_zeds_f = 0.
             if KF2.is_boss_wave(num_wave):
                 n_zeds_f = 0.5 * ( KF2.n_zeds(num_wave - 1, self.n_players, self.difficulty) +
                                    KF2.n_zeds(num_wave + 1, self.n_players, self.difficulty) )
@@ -262,7 +261,6 @@ class KF2_CustomEndlessWaves(object):
             for zed_entry in zeds_register_wave['zeds']:
 
                 # compute max number for a particular zed
-                max_zeds_f = 0.0
                 if zed_entry['ratio'] > 0.0:
                     max_zeds_f = (n_custom_zeds_f - sum_numbers) * zed_entry['ratio'] / sum_ratio
                 else:
