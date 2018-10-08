@@ -1,6 +1,11 @@
 # kf2-hardcore-endless
 Configs (A, B) (in YML format) + script to convert to *.ini files (+ ini files themselves).
 
+## Table of contents
+* [How to use](#how-to-use)
+* [Features](#features)
+* [Try these waves](#try-these-waves)
+
 ## How to use
 ```bash
 $ python main.py -h
@@ -21,6 +26,24 @@ optional arguments:
 
 ## Features
 * Can use **all** zeds (including alpha-zeds, bosses, and alpha-Patriarch) available as per May 2018
+* KFZedVariant options `spawn_at_once`, `probability`, `spawn_delay`, `number`, and `ratio` can be set
+    * globally for all waves and all zeds
+    * for specific wave and all zeds
+    * for specific wave and specific zed
+* `ratio` is (unnormalized) non-negative fraction of certain zed type. Total number of zeds is estimated from [wiki](https://wiki.tripwireinteractive.com/index.php?title=Endless_Mode), 
+and using meta parameters `n_players` and `difficulty`, after that multiplied by `zed_multiplier`, 
+and finally taking into the account `custom_zeds_ratio_policy`, `custom_zeds_ratio_policy_params` which control the
+ratio of *generated* (i.e. *custom*) zeds, as opposed to zeds generated in KF2 Endless by default
+* for instance, `custom_zeds_ratio_policy: 'make_line_const_interp'` and `custom_zeds_ratio_policy_params: [[1, 0.975], [20, 0.825]]`
+will gradually decrease the ratio of *custom* from 97.5% at first wave to 82.5% at 20th, keeping it like that afterwards
+* total zed count in boss waves are estimated by linearly interpolating between adjacent waves
+* `n_generators` can be used to spawn zeds of certain type more rapidly 
+(e.g. generate all of them first during the course of the wave)
+* by default, for all zeds, the spawn delay decays too quickly in later waves, according to [wiki](https://wiki.tripwireinteractive.com/index.php?title=Endless_Mode);
+therefore, all `spawn_delay`s are divided back by spawn delay multipliers, so that they can be controlled more transparently
+from the config
+
+See below for examples.
 
 ## Try these waves!
 * The first config (A) is more hardcore than the second (B) one, and also with more thoroughly designed waves (in terms of zeds combinations, ratios etc.)
