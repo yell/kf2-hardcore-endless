@@ -1,0 +1,304 @@
+# v0.1 -- 11.5.2018
+
+
+# meta params
+n_players: 6
+difficulty: hoe
+zed_multiplier: 2.00
+custom_zeds_ratio_policy: 'make_line_const_interp'
+custom_zeds_ratio_policy_params: [[1, 0.975], [20, 0.8]]
+
+# global (across all waves and zed types) params
+spawn_at_once: 4
+probability: 0.7
+spawn_delay: 8.0
+ratio: 1.0
+n_generators: 4
+
+# per-wave zeds specification
+zeds_register:
+
+  # STANDARD WAVES
+  - num_wave: 1
+    name: Cyst
+    spawn_delay: 1.5
+    zeds:
+      - zed: Cyst
+
+  - num_wave: 2
+    name: Slasher
+    spawn_delay: 2.0
+    zeds:
+      - zed: Slasher
+
+  - num_wave: 3
+    name: Crawler
+    spawn_delay: 2.5
+    zeds:
+      - zed: Crawler
+
+  - num_wave: 4
+    name: Clot
+    spawn_delay: 3.0
+    zeds:
+      - zed: Clot
+
+  - num_wave: 6
+    name: Stalker
+    spawn_delay: 3.5 
+    zeds:
+      - zed: Stalker
+
+  - num_wave: 7
+    name: Gorefast
+    spawn_delay: 4.0
+    zeds:
+      - zed: Gorefast
+
+  - num_wave: 8
+    name: Rioter
+    spawn_delay: 4.5 
+    zeds:
+      - zed: Rioter
+
+  - num_wave: 9
+    name: AlphaSlasher
+    spawn_delay: 5.0
+    zeds:
+      - zed: AlphaSlasher
+
+  - num_wave: 11
+    name: EliteCrawler 
+    spawn_delay: 5.5
+    zeds:
+      - zed: EliteCrawler
+
+  - num_wave: 12
+    name: AlphaHusk
+    spawn_delay: 6.0
+    zeds:
+      - zed: AlphaHusk
+
+  - num_wave: 13
+    name: Gorefiend 
+    spawn_delay: 6.5
+    zeds:
+      - zed: Gorefiend
+
+  - num_wave: 14
+    name: Siren 
+    spawn_delay: 7.0
+    zeds:
+      - zed: Siren
+
+  - num_wave: 16
+    name: Bloat 
+    spawn_delay: 7.5
+    zeds:
+      - zed: Bloat
+
+  - num_wave: 17
+    name: AlphaStalker 
+    zeds:
+      - zed: AlphaStalker
+
+  - num_wave: 18
+    name: AlphaClot
+    zeds:
+      - zed: AlphaClot
+
+  - num_wave: 19
+    name: AlphaCrawler 
+    zeds:
+      - zed: AlphaCrawler
+
+  - num_wave: 21
+    name: AlphaGorefast 
+    zeds:
+      - zed: AlphaGorefast
+
+  - num_wave: 22
+    name: Quarterpound 
+    zeds:
+      - zed: Quarterpound
+  
+  - num_wave: 23
+    name: AlphaSiren 
+    zeds:
+      - zed: AlphaSiren
+
+  - num_wave: 24
+    name: AlphaBloat 
+    zeds:
+      - zed: AlphaBloat
+
+  - num_wave: 26
+    name: Scrake 
+    zeds:
+      - zed: Scrake
+
+  - num_wave: 27
+    name: Husk
+    zeds:
+      - zed: Husk
+
+  - num_wave: 28
+    name: AlphaScrake 
+    zeds:
+      - zed: AlphaScrake
+
+  - num_wave: 29
+    name: AlphaFleshpound 
+    zeds:
+      - zed: AlphaFleshpound
+
+  - num_wave: 30
+    name: Fleshpound 
+    zeds:
+      - zed: Fleshpound
+
+
+  # BOSSES
+  - num_wave: 5
+    name: Abomination
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    n_generators: 1
+    zeds:
+      - zed: Abomination
+      - zed: Abomination
+      - zed: Abomination
+      - zed: Abomination
+      - zed: Abomination
+        spawn_delay: 60
+      - zed: Abomination
+        spawn_delay: 120
+      - zed: Abomination
+        spawn_delay: 180
+      - zed: Abomination
+        spawn_delay: 240
+      - zed: Abomination
+        spawn_delay: 300
+      - zed: Abomination
+        spawn_delay: 360
+      - zed: Abomination
+        spawn_delay: 420
+      - zed: Abomination
+        spawn_delay: 480
+      
+  - num_wave: 10
+    name: KingFP
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    n_generators: 1
+    zeds:
+      - zed: KingFP
+      - zed: KingFP
+      - zed: KingFP
+      - zed: KingFP
+      - zed: KingFP
+        spawn_delay: 120
+      - zed: KingFP
+        spawn_delay: 240
+      - zed: KingFP
+        spawn_delay: 360
+      - zed: KingFP
+        spawn_delay: 480
+      - zed: KingFP
+        spawn_delay: 600
+      - zed: KingFP
+        spawn_delay: 720
+      - zed: KingFP
+        spawn_delay: 840
+      - zed: KingFP
+        spawn_delay: 960
+
+  - num_wave: 15
+    name: Hans
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    n_generators: 1
+    zeds:
+      - zed: Hans
+      - zed: Hans
+      - zed: Hans
+      - zed: Hans
+        spawn_delay: 180
+      - zed: Hans
+        spawn_delay: 360
+      - zed: Hans
+        spawn_delay: 540
+      - zed: Hans
+        spawn_delay: 720
+      - zed: Hans
+        spawn_delay: 900
+      - zed: Hans
+        spawn_delay: 1080
+      - zed: Hans
+        spawn_delay: 1260
+
+  - num_wave: 20
+    name: AlphaPatriarch
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    n_generators: 1
+    zeds:
+      - zed: AlphaPatriarch
+      - zed: AlphaPatriarch
+      - zed: AlphaPatriarch
+      - zed: AlphaPatriarch
+        spawn_delay: 240
+      - zed: AlphaPatriarch
+        spawn_delay: 480
+      - zed: AlphaPatriarch
+        spawn_delay: 720
+      - zed: AlphaPatriarch
+        spawn_delay: 960
+      - zed: AlphaPatriarch
+        spawn_delay: 1200
+      - zed: AlphaPatriarch
+        spawn_delay: 1440
+      - zed: AlphaPatriarch
+        spawn_delay: 1680
+      - zed: AlphaPatriarch
+        spawn_delay: 1920
+
+  - num_wave: 25
+    name: Patriarch
+    spawn_at_once: 1
+    probability: 1.0
+    spawn_delay: 2.0
+    number: 1
+    n_generators: 1
+    zeds:
+      - zed: Patriarch
+      - zed: Patriarch
+      - zed: Patriarch
+      - zed: Patriarch
+        spawn_delay: 300
+      - zed: Patriarch
+        spawn_delay: 600
+      - zed: Patriarch
+        spawn_delay: 900
+      - zed: Patriarch
+        spawn_delay: 1200
+      - zed: Patriarch
+        spawn_delay: 1500
+      - zed: Patriarch
+        spawn_delay: 1800
+      - zed: Patriarch
+        spawn_delay: 2100
+      - zed: Patriarch
+        spawn_delay: 2400
+      - zed: Patriarch
+        spawn_delay: 2700
+      - zed: Patriarch
+        spawn_delay: 3000
