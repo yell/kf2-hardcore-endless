@@ -4,7 +4,7 @@ Configs (A, B) (in YML format) + script to convert to *.ini files (+ ini files t
 ## Table of contents
 * [How to use](#how-to-use)
 * [Features](#features)
-* [Try these waves](#try-these-waves)
+* [Try these waves!](#try-these-waves)
 
 ## How to use
 ```bash
