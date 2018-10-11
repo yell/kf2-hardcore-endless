@@ -72,8 +72,7 @@ class KF2_EndlessUtility(object):
 
     @staticmethod
     def is_boss_wave(num_wave):
-        assert KF2_EndlessUtility.is_valid_num_wave(num_wave)
-        return num_wave % 5 == 0
+        return KF2_EndlessUtility.is_valid_num_wave(num_wave) and num_wave % 5 == 0
 
     @staticmethod
     def _base_zeds_count(num_wave):
@@ -125,10 +124,11 @@ class KF2_EndlessUtility(object):
         
     @staticmethod
     def n_zeds(num_wave, n_players, difficulty='hoe'):
-        n = KF2_EndlessUtility.base_zeds_count(num_wave) *\
+        x = KF2_EndlessUtility.base_zeds_count(num_wave) *\
             KF2_EndlessUtility.wave_length_modifier(n_players) *\
             KF2_EndlessUtility.wave_count_mod(num_wave, difficulty)
-        return int(n)
+        n = int(x)
+        return n
 
     @staticmethod
     def _spawn_rate_modifier_hoe(num_wave):
@@ -166,29 +166,40 @@ def make_line_const_interp((x0, y0), (x1, y1)):
 
 class KF2_CustomEndlessWaves(object):
     """Class encapsulating custom zed waves in KF2 Endless mode."""
+    @staticmethod
+    def default_zed_options():
+        return {
+            'spawn_at_once': 1,
+            'probability': 0.5,
+            'spawn_delay': 15.0,
+            'ratio': 0.0,
+            'number': 0,
+            'n_generators': 1
+        }
+
+    @staticmethod
+    def zed_options():
+        return sorted(KF2_CustomEndlessWaves.default_zed_options().keys())
+    
     def __init__(self, zeds_config=None):
         self.zeds_config = zeds_config or {}
 
+        # meta parameters
         self.zeds_config.setdefault('n_players', 6)
         self.zeds_config.setdefault('difficulty', 'hoe')
         self.zeds_config.setdefault('zed_multiplier', 1.0)
         self.zeds_config.setdefault('custom_zeds_ratio_policy', lambda n: 1.0)
 
-        self.zeds_config.setdefault('spawn_at_once', 1)
-        self.zeds_config.setdefault('probability', 0.5)
-        self.zeds_config.setdefault('spawn_delay', 15.0)
-        self.zeds_config.setdefault('ratio', 0.0)
-        self.zeds_config.setdefault('number', 0)
-        self.zeds_config.setdefault('n_generators', 1)
-        self.ZED_OPTIONS = ['spawn_at_once', 'probability', 'spawn_delay', 'ratio', 'number', 'n_generators']
-
+        # zed specific options
         self.zeds_config.setdefault('zeds_register', [])
+        for attr, value in KF2_CustomEndlessWaves.default_zed_options().iteritems():
+            self.zeds_config.setdefault(attr, value)
 
-        for attr in self.zeds_config.keys():
+        for attr in self.zeds_config:
             setattr(self, attr, self.zeds_config[attr])
 
-        self.t = 'CustomZeds=(Wave={num_wave},SpawnAtOnce={spawn_at_once},Zed="{zed}",'
-        self.t += 'Probability={probability},Delay={spawn_delay},MaxSpawns={max_zeds})'
+        self.ini_line_template = 'CustomZeds=(Wave={num_wave},SpawnAtOnce={spawn_at_once},Zed="{zed}",'
+        self.ini_line_template += 'Probability={probability},Delay={spawn_delay},MaxSpawns={max_zeds})'
 
     def display(self, markdown=False):
         # collect all names
@@ -210,21 +221,21 @@ class KF2_CustomEndlessWaves(object):
             else:
                 print 'Wave {0}: {1}'.format(num_wave, name)
 
-    def to_zedvarient_ini(self, filename):
-        s_list = []
-        s_list.append('[ZedVarient.ZedVarient]')
-        s_list.append('ZedMultiplier={0:.6f}'.format(self.zed_multiplier))
-        s_list.append('bConfigsInit=True')
+    def save_ini(self, filename):
+        ini_lines = []
+        ini_lines.append('[ZedVarient.ZedVarient]')
+        ini_lines.append('ZedMultiplier={0:.6f}'.format(self.zed_multiplier))
+        ini_lines.append('bConfigsInit=True')
 
         for i, zeds_register_wave in enumerate(self.zeds_register):
             # set wave-specific options to the global defaults
-            for option in self.ZED_OPTIONS:
+            for option in KF2_CustomEndlessWaves.zed_options():
                 zeds_register_wave.setdefault(option, self.zeds_config[option])
             
             zeds_register_wave.setdefault('num_wave', i + 1)
             num_wave = zeds_register_wave['num_wave']
 
-            # get or estimate (actual) total number of zeds
+            # get or interpolate total number of [all] zeds
             if KF2.is_boss_wave(num_wave):
                 n_zeds_f = 0.5 * ( KF2.n_zeds(num_wave - 1, self.n_players, self.difficulty) +
                                    KF2.n_zeds(num_wave + 1, self.n_players, self.difficulty) )
@@ -241,7 +252,7 @@ class KF2_CustomEndlessWaves(object):
             for zed_entry in zeds_register_wave['zeds']:
 
                 # set zed-specific options to the wave-specific defaults    
-                for option in self.ZED_OPTIONS:
+                for option in KF2_CustomEndlessWaves.zed_options():
                     zed_entry.setdefault(option, zeds_register_wave[option])
 
                 # validate params
@@ -260,7 +271,7 @@ class KF2_CustomEndlessWaves(object):
             # main loop
             for zed_entry in zeds_register_wave['zeds']:
 
-                # compute max number for a particular zed
+                # compute max number for a particular zed type
                 if zed_entry['ratio'] > 0.0:
                     max_zeds_f = (n_custom_zeds_f - sum_numbers) * zed_entry['ratio'] / sum_ratio
                 else:
@@ -270,19 +281,18 @@ class KF2_CustomEndlessWaves(object):
                 # correct `spawn_at_once` if needed
                 zed_entry['spawn_at_once'] = min(max_zeds, zed_entry['spawn_at_once'])
                 
-                # undo multiplication by spawn delay multiplier 
-                # (by default the spawn delay decays too quickly)
+                # undo multiplication by spawn delay multiplier
                 zed_entry['spawn_delay'] *= ( KF2.spawn_delay(zed_entry['spawn_delay'], 1) /
                                               KF2.spawn_delay(zed_entry['spawn_delay'], num_wave) )
 
                 # generate config lines
                 for _ in xrange(zed_entry['n_generators']):
-                    s = self.t.format(num_wave=num_wave, max_zeds=max_zeds, **zed_entry)
-                    s_list.append((num_wave, s))
+                    s = self.ini_line_template.format(num_wave=num_wave, max_zeds=max_zeds, **zed_entry)
+                    ini_lines.append((num_wave, s))
 
         # sort and produce final string
-        s_list[3:] = [s for i, s in sorted(s_list[3:])]
-        s = '\n'.join(s_list)
+        ini_lines[3:] = [s for i, s in sorted(ini_lines[3:])]
+        s = '\n'.join(ini_lines)
 
         # save to ini file
         with open(filename, 'w') as f:
@@ -313,7 +323,7 @@ def main(args):
         waves.display(markdown=True)
 
     # generate ini file
-    waves.to_zedvarient_ini(os.path.join(dirpath, 'kfzedvarient.ini'))
+    waves.save_ini(os.path.join(dirpath, 'kfzedvarient.ini'))
 
 
 if __name__ == '__main__':
