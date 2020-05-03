@@ -1,5 +1,5 @@
 # kf2-hardcore-endless
-This repository contains custom hardcore waves (`ini` files) for Killing Floor 2 Endless mode using [[Custom Zed Waves mutator]](https://steamcommunity.com/sharedfiles/filedetails/?id=1082749153), as well as a generator of such files from YAML configs with convenient structure. Once you got/generated corresponding `ini` file, see the mutator's docs on how to use it.
+This repository contains custom hardcore waves (`ini` files) for Killing Floor 2 Endless mode using [Custom Zed Waves mutator](https://steamcommunity.com/sharedfiles/filedetails/?id=1082749153), as well as a generator of such files from YAML configs with convenient structure. Once you got/generated corresponding `ini` file, see the mutator's docs on how to use it.
 
 
 ## Hardcore endless waves
